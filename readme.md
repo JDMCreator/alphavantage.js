@@ -20,9 +20,13 @@ If a request is denied because of the limit, the wrapper will wait `alphaVantage
 ## Documentation
 
 **alphaVantage.get**
+
 Request data from Alpha Vantage.
+
 `Promise alphaVantage.get(String functionName, String SymbolOrKeyword, Optional Object Options)`
+
 Examples
+
 ```js
 alphaVantage.get("CRYPTO_RATING","BTC").then(function(result){
         alert(result.fcasRating);
@@ -41,9 +45,13 @@ alphaVantage.get("TRIMA","IBM",{
 }).then(...).catch(...);
 ```
 **alphaVantage.getRate**
+
 Request data about rates from Alpha Vantage
+
 `Promise alphaVantage.getRate(String functionName, String SymbolOrCurrencyFrom, String SymbolOrCurrencyTo, Optional Object Options)`
+
 Examples
+
 ```js
 alphaVantage.getRate("FX_WEEKLY","EUR","USD").then(function(result){
         alert("Last week close : " + result.timeSeries[0].close);
@@ -51,34 +59,53 @@ alphaVantage.getRate("FX_WEEKLY","EUR","USD").then(function(result){
 ```
 
 **alphaVantage.quote**
+
 Request data about a quote from Alpha Vantage
+
 `Promise alphaVantage.quote(String Symbol, Optional String Market)`
+
 Examples
+
 ```js
 alphaVantage.quote("IBM").then(console.dir).catch(console.error);
 ```
 ```js
 alphaVantage.quote("SHOP","TSX").then(console.dir).catch(console.error);
 ```
+
 **alphaVantage.rate**
+
 Shortcut for `CURRENCY_EXCHANGE_RATE`.
+
 `Promise alphaVantage.rate(String from, String to)`
+
 Examples
+
 ```js
 alphaVantage.rate("USD","EUR").then(...).catch(...)
 ```
+
 **alphaVantage.rateIntra**
+
 Shortcut for `FX_INTRADAY`.
+
 `Promise alphaVantage.rateIntra(String from, String to, Optional String interval, Optional Boolean outputfull)`
+
 The default interval value is `15min`. Examples :
+
 ```js
 alphaVantage.rateIntra("USD","EUR").then(...).catch(...)
 alphaVantage.rateIntra("USD","EUR","1min",true).then(...).catch(...)
 ```
+
 **alphaVantage.search**
+
 Search from keywords with Alpha Vantage
+
 `Promise alphaVantage.search(String keywords)`
+
 Examples
+
 ```js
 alphaVantage.search("BA").then(function(result){
         alert("First result is : " + result.results[0].name);
@@ -86,6 +113,7 @@ alphaVantage.search("BA").then(function(result){
 ```
 
 ## Response
+
 The result you will get will have been transformed by the wrapper to make it more usable. Properties name will be corrected to use camel case and time series will be transformed in an Array sorted from the most recent.
 
 For example :
